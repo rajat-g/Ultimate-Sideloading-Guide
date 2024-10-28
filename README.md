@@ -1,5 +1,5 @@
 # Please use this [website](https://whysoooofurious.netlify.app) if not using it already!
-# Feather is finnicky, use ESign.
+# New DNS redirect method is up and working!
 
 ## Introduction
 Hello and welcome to my guide on how to sideload on Apple Devices!
@@ -15,8 +15,9 @@ Some of the advantages with using this method:
 - Compatible with Scarlet/Feather/ESign/GBox/QuickSign
 
 Some of the disadvantages with using this method:
-- No VPN Support
-- No ChatGPT Support although ChatGPT in Apple Intelligence might still work!
+- No VPN Support (unless making your own DNS)
+- No ChatGPT Support (unless making your own DNS)
+- Feather might not work (unless making your own DNS)
 
 I will look into fixing these quirks soon.
 
@@ -25,9 +26,7 @@ If you are hesitant of the WhySooooFurious Configuration Profile, open it up on 
 If you have any issues, requests or ideas please make an issue here on GitHub.
 
 ## How does this method work?
-By using leaked business enterprise certificates, We can sign apps using their credentials which means Apple lets us install the apps without any hassle, however after a while Apple revokes the certificate, the WhySooooFurious Configuration Profile redirects and prevents Apple servers from contacting your device about the revoked certificate which let's you use apps forever.
-
-The WhySooooFurious Configuration Profile redirects specific Apple servers to https://localhost.direct which is a fancy way of saying that it's your own local network, meaning Apple can never contact your device about the revoked certificates!
+By using leaked business enterprise certificates, We can sign apps using their credentials which means Apple lets us install the apps without any hassle, however after a while Apple revokes the certificate, the WhySooooFurious Configuration Profile redirects and prevents Apple servers from contacting your device about the revoked certificate which in turn lets you use the apps for however long as you'd like.
 
 ## Before we start
 - This might not work for you if you've been using other enterprise sideloaders as the certificates might be revoked!
@@ -37,19 +36,21 @@ The WhySooooFurious Configuration Profile redirects specific Apple servers to ht
 
 ## Compatibility
 This should work for all iOS and iPadOS devices on the latest versions.
-iOS Versions that might not be supported are below iOS 12 and iPadOS 13.
+
+Versions that might not be supported are below iOS 12 and iPadOS 13.
 
 The WSF Configuration Profile is compatible with other sideloading services as long as they rely on enterprise certificates to install.
 
 Feather is also available to download and the steps should be similar as ESign's.
 
 Follow Part 1 and 2 of my guide to install the WSF Configuration Profile for other sideloaders.
+
 You do not need to follow Part 3, 4 and 5 as these install and setup ESign itself.
 
 ## Ultimate Sideloading Guide
-[Spanish Tutorial](https://www.youtube.com/watch?v=558O5tu7D1E)
 
 ### Part [1/4] Installing the Configuration Profile
+You can alternatively follow this [guide](#making-your-own-dns) to make your own DNS supporting VPNs and ChatGPT.
 1. Go down to [Downloads](#downloads) and click on the link, then Configuration Profiles and then select the WSF Configuration Profile
 2. Click on Download, and the profile should be imported into settings automatically
 3. Now, open settings and go to General > VPN & Device Management and install the downloaded profile
@@ -99,18 +100,21 @@ You do not need to follow Part 3, 4 and 5 as these install and setup ESign itsel
 15. Now read the [Post Install Notes](#post-install-notes) carefully
 
 ### Post Install Notes
-- You cannot use a VPN
-- You must never disable the Configuration Profile!
+- You cannot use a VPN, unless you have made your own DNS and are following the VPN [guide](#using-a-vpn)
+- Don't use NextDNS and the WSF Configuration Profile together
+- You must never disable the DNS!
 - Don't install a lot of apps at once!
 - Don't install Safari extensions!
-- Go into Airplane Mode if you're removing the Profile or switching
-- Don't use Nugget or Cowabunga otherwise the Configuration Profile will disappear! There is a [workaround](#using-nugget-or-cowabunga)
+- Go into Airplane Mode if you're switching DNS
+- Don't use Cowabunga otherwise the DNS will disappear! There is a [workaround](#using-nugget-or-cowabunga)
+- Don't use Nugget otherwise the DNS will disappear! There is a [workaround](#using-nugget-or-cowabunga)
+- If you have made your own DNS, NextDNS has a limit of 300000 queries per month! If you reach this limit, you will be revoked! It is recommended to make multiple accounts and making more profiles or using the WSF Configuration Profile
 
 Not following the above guidelines will make your apps revoked!
 
 ## Troubleshooting
 
-### Unable to Install? Integrity could not be verified? App is not available?
+### Unable to Install? Integrity could not be verified?
 
 You need to follow this [guide](#revoked)
 
@@ -135,7 +139,7 @@ My sources for ESign
 
 Q - Can I use a VPN?
 
-A - You cannot
+A - You cannot if you are using the WSF Comfiguration Profile. If you have made your own DNS, it is compatible. If you want to use a VPN, Use this [guide](#using-a-vpn).
 
 -
 
@@ -147,30 +151,106 @@ A - Simple answer, No.
 
 Q - Will services such as AltStore, Sideloadly and Sidestore affect this guide at all?
 
-A - No, Those listed services use developer signing instead of Enterprise signing so they are fine to use alongside! Although SideStore's WireGuard is not compatible.
+A - No, Those listed services use developer signing instead of Enterprise signing so they are fine to use alongside! You might need to edit SideStore's WireGuard and edit the DNS inside to match your NextDNS settings in this [guide](#using-a-vpn), although this isn't compatible with the WSF Configuration Profile.
 
 -
 
+---
+
 ## Miscellaneous Guides
+
+### Making your own DNS
+Somewhat depreciated, I recommend installing the WSF Configuration Profile now, although this will still work!
+
+#### Part [1/2] Making your DNS (NextDNS)
+1. Go to this [website](https://shorturl.at/hfr4V) and make your own account
+2. Go to the Denylist tab and add the following domains:
+   
+   vpp.itunes.apple.com
+   
+   appattest.apple.com
+   
+   certs.apple.com
+   
+   crl.apple.com
+   
+   valid.apple.com
+   
+   ocsp2.apple.com
+   
+   ocsp.apple.com
+
+3. Go to the Allowlist tab and add the following domains:
+   
+   app.localhost.direct
+
+   register.appattest.apple.com
+
+4. Go into the Privcy tab and click on the cross next to the NextDNS Ads and Trackers
+
+5. Go into the Parental Control tab and enable the Block Bypass Methods
+
+6. Continue onto [Part 2](#part-22-installing-the-dns) to finish the DNS installation
+
+### Part [2/2] Installing the DNS
+1. Go to the Setup tab, find and click on the hyperlinked apple.nextdns.io which should redirect you to the NextDNS Profile website
+2. Select the profile you edited
+3. Click on More Options
+4. Then Enable the Trust NextDNS Root CA and Bootstrap IPs toggle
+5. Click on Download, and the profile should be imported into settings automatically
+6. Now, open settings and go to General > VPN & Device Management and install the downloaded profile
+7. The DNS should now automatically be enabled, Do not change the DNS settings to automatic otherwise your apps will get revoked!
+8. Now, go back and then go to General > About > Certificate Trust Settings
+9. Enable Full Trust for the NextDNS Root Certificate, if Full Trust does not show you cannot use VPNs at all
+10. Continue onto [Part 2](#part-35-installing-esign) of the main guide if you want to install ESign
+
+
+#### Part [1/2] Making your DNS (NextDNS)
+1. Go to this [website](https://auth.adguard.com/login.html) and make your own account
+2. Follow the video and use below text
+   
+   
+   ```
+   @@||register.appattest.apple.com^
+   @@||app.localhost.direct^
+   ||ocsp.apple.com^
+   ||ocsp2.apple.com^
+   ||valid.apple.com^
+   ||crl.apple.com^
+   ||certs.apple.com^
+   ||appattest.apple.com^
+   ||vpp.itunes.apple.com^
+   ```
+4. Continue onto [Part 2](#part-35-installing-esign) of the main guide if you want to install ESign
+
+
+### Using a VPN 
+This will not work with the WSF Configuration Profile!
+
+So you want to use a VPN with the DNS blocker, Follow the steps below and you should be able to use your VPN normally and on-demand, I still do not recommend using a VPN with the DNS, You should know how to configure your VPN's DNS server yourself as there are different steps for each VPN app.
+
+#### Method 1
+1. Go to this [website](https://shorturl.at/hfr4V)
+2. You should be at the Setup tab, Find your 2 DNS servers under the Linked IPs section
+3. Insert either one or both if you can in your VPN's DNS configuration, if you can't find the option, this won't work.
 
 ### Revoked?
 So you've gotten yourself revoked, Follow the methods listed below and you should be unrevoked.
 
 Method 1 should work
-
 Method 2 will completely reset your device and will definitely work
 
 You must not use your backups with Method 2
 
 #### Method 1
-1. Remove the Configuration Profile and uninstall ESign
+1. Remove the DNS and uninstall ESign
 2. Back up your device, here is a [guide](https://shorturl.at/fnR5J)
 3. After backing up, reset your device, here is a [guide](https://shorturl.at/JKnhG), iTunes restore in Recovery Mode or DFU mode is heavily recommended
 5. Now if you have an iCloud backup you should be prompted to restore from your backup after logging in to your Apple ID, if you have a local backup all you need to do is plug your phone in, go on either Finder for macOS or iTunes for Windows and click on restore backup from your device's menu
 6. Then follow Part 1 of the guide to prevent revokes
 
 #### Method 2
-1. Remove the Configuration Profile and uninstall ESign
+1. Remove the DNS and uninstall ESign
 2. Follow this [guide](https://shorturl.at/JKnhG)
 3. Then follow Part 1 of the guide to prevent revokes
 
@@ -182,9 +262,9 @@ Only the macOS version of Nugget is compatible with this guide. Not the app itse
 
 ##### Part [1/2] Using Nugget/Cowabunga
 1. Forget all WiFi networks and disable Cellular Networks and put your device in Airplane Mode.
-2. Remove the WSF Configuration Profile you have. You don't have to delete your installed apps.
+2. Remove the WSF Configuration Profile you have or DNS profile. Don't delete your installed apps.
 3. Now you can use Nugget or Cowabunga as you please.
-4. Continue onto the [Part 2](#installing-the-wsf-configuration-profile)
+4. Continue onto the [Part 2](#part-22-installing-the-dns)
 
 
 ##### Part [2/2] Installing the WSF Configuration Profile
