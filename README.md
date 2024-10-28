@@ -205,9 +205,9 @@ Somewhat depreciated, I recommend installing the WSF Configuration Profile now, 
 10. Continue onto [Part 2](#part-35-installing-esign) of the main guide if you want to install ESign
 
 
-#### Part [1/2] Making your DNS (NextDNS)
+#### Part [1/2] Making your DNS (AdguardDNS)
 1. Go to this [website](https://auth.adguard.com/login.html) and make your own account
-2. Follow the video and use below text
+2. Follow the [video](https://www.youtube.com/watch?v=CSIELsLT_xs) and use below text
    
    
    ```
