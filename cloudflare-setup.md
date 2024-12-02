@@ -49,14 +49,12 @@ export const RECOMMENDED_BLOCKLIST_URLS = [
   "https://raw.githubusercontent.com/r-a-y/mobile-hosts/master/AdguardTracking.txt"
 ];
 ```
-3. Install Dependencies
-Run the following command to install the required dependencies:
+3. Run the following command to install the required dependencies:
 
 ```
 npm install
 ```
-4. Configure Environment Variables
-Copy the example `.env` file and populate it with your Cloudflare credentials:
+4. Copy the example `.env` file and populate it with your Cloudflare credentials:
 
 ```cp .env.example .env```
 
@@ -65,22 +63,18 @@ Fill in the following fields in `.env`: Refer to [this guide](https://github.com
 `CLOUDFLARE_API_TOKEN`: Your API token.
 `CLOUDFLARE_ACCOUNT_ID`: Your account ID.
 
-5. Download Filter Lists
-Run the following command to download the filter lists:
+5. Run the following command to download the filter lists:
 ```
 node download_lists.js
 ```
-6. Create Cloudflare Lists
-Run the script to create lists in Cloudflare Gateway (this step may take a while):
-
+6. Run the script to create lists in Cloudflare Gateway (this step may take a while):
 ```node cf_list_create.js```
-7. Create Firewall Rule
-Run the script to create the firewall rule in Cloudflare Gateway:
+7. Run the script to create the firewall rule in Cloudflare Gateway:
 ```
 node cf_gateway_rule_create.js
 ```
 Final Step: Create a DNS Location in Cloudflare
 Go to the Cloudflare Zero Trust dashboard and create a DNS Location for your setup.
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTM0Nzk3ODU4M119
+eyJoaXN0b3J5IjpbNjUzODQ4MDZdfQ==
 -->
