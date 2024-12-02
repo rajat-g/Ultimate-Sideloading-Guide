@@ -275,3 +275,6 @@ Only the macOS version of Nugget is compatible with this guide. Not the app itse
 8. Input your password on your device if it requires it
 9. Find your device, right click and select Add > Profiles
 10. Select the WSF Configuration Profile and then it should be installed and activated automatically
+<!--stackedit_data:
+eyJoaXN0b3J5IjpbLTEzMTc0MjgwNzBdfQ==
+-->
