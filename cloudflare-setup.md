@@ -71,8 +71,9 @@ node download_lists.js
 ```
 node cf_gateway_rule_create.js
 ```
+
 Final Step: Create a DNS Location in Cloudflare
 Go to the Cloudflare Zero Trust dashboard and create a DNS Location for your setup.
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbODY2MTA5NTAzXX0=
+eyJoaXN0b3J5IjpbNDA4ODU1Mjc3LDg2NjEwOTUwM119
 -->
