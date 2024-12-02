@@ -11,13 +11,11 @@
 
 ## Steps to Create Zero Trust Firewall Policy
 
-### 1. Clone the Repository
-Download the repository from GitHub:
+1. Download the repository from GitHub:
 ```
 git clone https://github.com/mrrfv/cloudflare-gateway-pihole-scripts.git
 ```
-2. Update the Configuration File
-Navigate to the repository and update the file:
+2. Navigate to the repository and update the file:
 ```
 cd cloudflare-gateway-pihole-scripts/lib
 ```
@@ -76,5 +74,5 @@ node cf_gateway_rule_create.js
 Final Step: Create a DNS Location in Cloudflare
 Go to the Cloudflare Zero Trust dashboard and create a DNS Location for your setup.
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbNjUzODQ4MDZdfQ==
+eyJoaXN0b3J5IjpbODY2MTA5NTAzXX0=
 -->
